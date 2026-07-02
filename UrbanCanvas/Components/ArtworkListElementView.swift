@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct ArtworkListElementView: View {
+    var artwork :Artwork
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationLink(destination: ArtworkDetailView(artwork: artwork)){
+            HStack {
+                Image(artwork.imageName)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 60, height: 60)
+                    .cornerRadius(80)
+                VStack(alignment: .leading) {
+                    Text(artwork.name)
+                        .foregroundStyle(.black)
+                    HStack {
+                        Image(systemName: "mappin.circle.fill")
+                        Text(artwork.localisation)
+                    }
+                    .font(.caption)
+                    .foregroundStyle(.gray)
+                    
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    ArtworkListElementView()
+    ArtworkListElementView(artwork: artworks[1])
 }

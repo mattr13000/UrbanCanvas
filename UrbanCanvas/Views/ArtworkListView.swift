@@ -8,20 +8,10 @@
 import SwiftUI
 
 struct ArtworkListView: View {
-    
     var body: some View {
         NavigationStack {
-            List{
-                NavigationLink(destination: ArtworkDetailView()){
-                    Text("Yo")
-                }
-                Text("Yo")
-                Text("Yo")
-                Text("Yo")
-                Text("Yo")
-                Text("Yo")
-                Text("Yo")
-                Text("Yo")
+            List(artworks) { artwork in
+                ArtworkListElementView(artwork: artwork)
             }
             .navigationTitle("Liste des Street arts")
         }

@@ -50,6 +50,7 @@ struct Artwork: Identifiable {
     var date :String
     var author :Artist
     var localisation :String
+    var address :String
     var coordinates :CLLocationCoordinate2D
 }
 
@@ -60,24 +61,10 @@ struct Artist: Identifiable {
     var origin :String
     var favArtStyle :String
     var profilePictureName :String
+    var artistUrl :String
 }
 
-let artworks :[Artwork] = [
-    Artwork(name: "Ninja",
-    description : "Un ninja de konoha",
-    imageName: "kakashibogoss",
-    artType: "Ramen",
-    condition: "PSA 10",
-    date: "12/12/2012",
-    author: artists[1],
-    localisation: "Marseille",
-    coordinates: CLLocationCoordinate2D(latitude: 37.1060065, longitude: -8.6773494)),
-]
 
-let artists :[Artist] = [
-    Artist(name: "Didier", age: 12, origin: "Aubagne", favArtStyle: "Shuriken", profilePictureName: "didier"),
-    
-]
 
 
 
