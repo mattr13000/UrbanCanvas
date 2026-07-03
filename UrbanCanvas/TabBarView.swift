@@ -10,13 +10,14 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
         TabView {
-            Tab("Oeuvres", systemImage: "tray.and.arrow.down.fill") {
+            Tab("Oeuvres", systemImage: "photo.artframe.circle") {
                 PickerView()
             }
-            
-            
-            Tab("Auteurs", systemImage: "tray.and.arrow.up.fill") {
+            Tab("Auteurs", systemImage: "person.circle") {
                 ArtistsListView()
+            }
+            Tab("Missions", systemImage: "magnifyingglass.circle") {
+                MissionView()
             }
         }
     }
