@@ -248,3 +248,16 @@ let artworks: [Artwork] = [
             coordinates: CLLocationCoordinate2D(latitude: 38.7026821, longitude: -9.1753323))
     
 ]
+
+func artworkArrayFilter(artList :[Artwork], artStyle :String) -> [Artwork] {
+    var filteredArray :[Artwork] = []
+    if artStyle == "Tous" {
+        return artList
+    }
+    for art in artList {
+        if art.artType == artStyle {
+            filteredArray.append(art)
+        }
+    }
+    return filteredArray
+}
