@@ -34,9 +34,23 @@ struct ArtworkListView: View {
                     ArtworkListElementView(artwork: artwork)
                 }
                 .navigationTitle("Liste des Street arts")
+                .toolbar {
+                    Button {
+                        isFilterMenuActive.toggle()
+                    } label: {
+                        ZStack {
+                            Circle()
+                                .frame(maxWidth: 40)
+                                .foregroundStyle(.white)
+                            Image(systemName: "line.3.horizontal.decrease.circle")
+                        }
+                    }
+
+                }
             }
         }
         .background(.backgroundGray)
+
     }
 }
 
