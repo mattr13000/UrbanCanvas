@@ -7,9 +7,11 @@
 //
 
 let artists: [Artist] = [
-    Artist(name: "KIAM", age: 34, origin: "Porto", favArtStyle: "Mural", profilePictureName: "placeholder", artistUrl: ""),        // Index 1
+    Artist(name: "Didier", age: 34, origin: "Marseille", favArtStyle: "Pastis", profilePictureName: "placeholder", artistUrl: ""),
+    Artist(name: "KIAM", age: 34, origin: "Porto", favArtStyle: "Mural", profilePictureName: "placeholder", artistUrl: ""),
     Artist(name: "Gonçalo MAR", age: 41, origin: "Lisbonne", favArtStyle: "Stencil", profilePictureName: "placeholder", artistUrl: ""),
     Artist(name: "Jorge Charrua", age: 45, origin: "Lisbonne", favArtStyle: "Calligraphie", profilePictureName: "placeholder", artistUrl: ""),
-    Artist(name: "Projeto Ruido", age: 38, origin: "Porto", favArtStyle: "Invaders", profilePictureName: "placeholder", artistUrl: "")
-    // Index 2
+    Artist(name: "Projeto Ruido", age: 38, origin: "Porto", favArtStyle: "Invaders", profilePictureName: "placeholder", artistUrl: ""),
+    Artist(name: "Risko", age: 29, origin: "Sintra", favArtStyle: "Stencil", profilePictureName: "placeholder", artistUrl: ""),
+    Artist(name: "Tinta Crua", age: 31, origin: "Lisbonne", favArtStyle: "Mural", profilePictureName: "placeholder", artistUrl: "")
 ]
