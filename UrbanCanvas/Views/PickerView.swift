@@ -9,29 +9,42 @@ import SwiftUI
 
 struct PickerView: View {
     @State private var selectedView = 0
-    
+    @State private var isFilterMenuActive = false
+    @State private var currentFilter = "Tous"
     var body: some View {
-                VStack {
-                    // 2. Le Picker qui sert de barre de switch
-                    Picker("Options", selection: $selectedView) {
-                        Text("Liste").tag(0)
-                        Text("Carte").tag(1)
-                    }
-                    .pickerStyle(.segmented) // <- C'est cette ligne qui donne le look "barre en haut"
-                    .padding()
-                    
-                    Spacer()
-                    
-                    // 3. On affiche la vue en fonction du choix
-                    if selectedView == 0 {
-                        ArtworkListView()
-                    } else {
-                        ArtworkMapView()                    }
-                    
-                    Spacer()
+        VStack {
+            HStack{
+                Picker("Options", selection: $selectedView) {
+                    Text("Liste").tag(0)
+                    Text("Carte").tag(1)
                 }
+                .pickerStyle(.segmented)
+                .padding()
+                .popover(isPresented: $isFilterMenuActive) {
+                    FilterMenuView(currentFilter: $currentFilter)
+                }
+                Button {
+                    isFilterMenuActive.toggle()
+                } label: {
+                    ZStack {
+                        Circle()
+                            .frame(maxWidth: 40)
+                            .foregroundStyle(.white)
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                    }
+                }
+                .buttonStyle(.plain)
             }
+            .padding()
+            if selectedView == 0 {
+                ArtworkListView()
+
+            } else {
+                ArtworkMapView()
+            }
+        }
     }
+}
 
 
 #Preview {
