@@ -42,9 +42,7 @@ struct ArtworkMapView: View {
                     }
                 }
             }
-        }
-
-        
+        }        
     }
 }
 
