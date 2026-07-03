@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FilterMenuView: View {
     @Binding var currentFilter :String
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Liste des filtres")
@@ -17,7 +18,6 @@ struct FilterMenuView: View {
             ForEach (artStyles, id: \.self) { artStyle in
                 FilterMenuButton(currentFilter: $currentFilter, artStyleText: artStyle)
             }
-
         }
         .padding()
     }
