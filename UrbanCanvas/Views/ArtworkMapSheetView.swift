@@ -8,11 +8,42 @@
 import SwiftUI
 
 struct ArtworkMapSheetView: View {
+    var artwork :Artwork
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                HStack {
+                    Button {
+                    }
+                    label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: 50)
+                            .foregroundStyle(.backgroundGray)
+                    }
+                    Spacer()
+                    Text(artwork.name)
+                    Spacer()
+                    NavigationLink(destination:  ArtworkDetailView(artwork: artwork), label: {
+                        Image(systemName: "arrow.right.circle.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: 50)
+                            .foregroundStyle(.mainOrange)
+                    })
+                }
+                Image(artwork.imageName)
+                    .resizable()
+                    .frame(maxWidth: .infinity, maxHeight: 200)
+                Text(artwork.description)
+            }
+            .padding()
+        }
     }
+    
 }
 
 #Preview {
-    ArtworkMapSheetView()
+   ArtworkMapSheetView(artwork: artworks[1])
 }

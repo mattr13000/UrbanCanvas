@@ -35,12 +35,16 @@ struct ArtworkMapView: View {
                     .onTapGesture {
                         isDisplayed.toggle()
                     }
+                    .sheet(isPresented: $isDisplayed) {
+                        ArtworkMapSheetView(artwork: artwork)
+                            .background(.clear)
+                            .presentationDetents([.medium])
+                    }
                 }
             }
         }
-        .sheet(isPresented: $isDisplayed) {
-            ArtworkDetailView(artwork: artworks[1])
-        }
+
+        
     }
 }
 
