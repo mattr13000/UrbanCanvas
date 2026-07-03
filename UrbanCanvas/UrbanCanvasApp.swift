@@ -11,7 +11,7 @@ import SwiftUI
 struct UrbanCanvasApp: App {
     var body: some Scene {
         WindowGroup {
-            PickerView()
+            TabBarView()
         }
     }
 }

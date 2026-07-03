@@ -26,11 +26,3 @@ struct FilterMenuView: View {
 #Preview {
     FilterMenuView(currentFilter: .constant("Yo"))
 }
-
-
-/* action de la liste :
-    quand je click sur un type d'art :
- 
- artwork list view refresh
- select all where 
- */
