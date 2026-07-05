@@ -10,10 +10,9 @@ import SwiftUI
 struct PickerView: View {
     @State private var selectedView = 0
     @State private var isFilterMenuActive = false
-    @State private var currentFilter = "Tous"
     var body: some View {
         VStack {
-            HStack{
+            HStack {
                 Picker("Options", selection: $selectedView) {
                     Text("Liste").tag(0)
                     Text("Carte").tag(1)
@@ -21,7 +20,7 @@ struct PickerView: View {
                 .pickerStyle(.segmented)
                 .padding()
                 .popover(isPresented: $isFilterMenuActive) {
-                    FilterMenuView(currentFilter: $currentFilter)
+                    FilterMenuView()
                 }
                 Button {
                     isFilterMenuActive.toggle()
@@ -49,4 +48,5 @@ struct PickerView: View {
 
 #Preview {
     PickerView()
+        .environment(ArtworksList())
 }

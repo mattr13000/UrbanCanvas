@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TabBarView: View {
+    @Environment(ArtworksList.self) private var artworkList
     var body: some View {
         TabView {
             Tab("Oeuvres", systemImage: "photo.artframe.circle") {
@@ -25,4 +26,5 @@ struct TabBarView: View {
 
 #Preview {
     TabBarView()
+        .environment(ArtworksList())
 }

@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct FilterMenuButton: View {
-    @State private var isFilterActive :Bool = false
-    @Binding var currentFilter :String
+    @Environment(ArtworksList.self) private var artworkList
+    @Environment(\.dismiss) private var dismiss
     let artStyleText :String
     var body: some View {
         Button {
-            isFilterActive.toggle()
-            currentFilter = artStyleText
-            
+            artworkList.currentFilter = artStyleText
+            dismiss()
         } label: {
                 Text(artStyleText)
-                .foregroundStyle(isFilterActive ? .mainOrange : .mainText)
+                .foregroundStyle(artStyleText == artworkList.currentFilter ? .mainOrange : .mainText)
                 .padding()
                 .frame(maxWidth:.infinity)
                 .background(
@@ -33,5 +32,6 @@ struct FilterMenuButton: View {
 }
 
 #Preview {
-    FilterMenuButton(currentFilter: .constant("Yo"), artStyleText: "Salut")
+    FilterMenuButton(artStyleText: "Salut")
+        .environment(ArtworksList())
 }
