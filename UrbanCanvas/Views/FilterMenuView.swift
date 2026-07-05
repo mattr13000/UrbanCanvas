@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FilterMenuView: View {
-    @Binding var currentFilter :String
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -16,7 +15,8 @@ struct FilterMenuView: View {
                 .fontWeight(.bold)
             Text("Choisissez un type d'art")
             ForEach (artStyles, id: \.self) { artStyle in
-                FilterMenuButton(currentFilter: $currentFilter, artStyleText: artStyle)
+                FilterMenuButton(artStyleText: artStyle)
+                    
             }
         }
         .padding()
@@ -24,5 +24,6 @@ struct FilterMenuView: View {
 }
 
 #Preview {
-    FilterMenuView(currentFilter: .constant("Yo"))
+    FilterMenuView()
+        .environment(ArtworksList())
 }

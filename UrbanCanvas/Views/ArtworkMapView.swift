@@ -9,10 +9,11 @@ import SwiftUI
 import MapKit
 
 struct ArtworkMapView: View {
-    @State private var isDisplayed :Bool = false
+    @State private var selectedArtwork :Artwork? = nil
+    @Environment(ArtworksList.self) private var artworkList
     var body: some View {
         Map(){
-            ForEach (artworks) { artwork in
+            ForEach (artworkList.filteredArray) { artwork in
                 Annotation(artwork.name, coordinate: artwork.coordinates) {
                     VStack(spacing: 0) {
                         // 1. Ton image dans son cercle blanc
@@ -33,19 +34,20 @@ struct ArtworkMapView: View {
                             .offset(y: -3)
                     }
                     .onTapGesture {
-                        isDisplayed.toggle()
-                    }
-                    .sheet(isPresented: $isDisplayed) {
-                        ArtworkMapSheetView(artwork: artwork)
-                            .background(.clear)
-                            .presentationDetents([.medium])
+                        selectedArtwork = artwork
                     }
                 }
             }
-        }        
+        }
+        .sheet(item: $selectedArtwork) {artwork in
+            ArtworkMapSheetView(artwork: artwork)
+                .background(.clear)
+                .presentationDetents([.medium])
+        }
     }
 }
 
 #Preview {
     ArtworkMapView()
+        .environment(ArtworksList())
 }

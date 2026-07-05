@@ -10,13 +10,12 @@ import SwiftUI
 struct ArtworkListView: View {
     
 
-   
-//    var filteredArray :[Artwork] {return artworkArrayFilter(artList: artworks, artStyle: currentFilter)}
+    @Environment(ArtworksList.self) private var artworkList
     
     var body: some View {
         VStack {
             NavigationStack {
-                List(artworks) { artwork in
+                List(artworkList.filteredArray) { artwork in
                     ArtworkListElementView(artwork: artwork)
                 }
                 .navigationTitle("Liste des Street arts")
@@ -30,4 +29,5 @@ struct ArtworkListView: View {
 
 #Preview {
     ArtworkListView()
+        .environment(ArtworksList())
 }

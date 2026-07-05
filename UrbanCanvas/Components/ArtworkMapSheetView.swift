@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ArtworkMapSheetView: View {
     var artwork :Artwork
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
                     Button {
+                        dismiss()
                     }
                     label: {
                         Image(systemName: "xmark.circle.fill")
