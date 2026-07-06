@@ -18,10 +18,7 @@ struct ArtworkMapView: View {
                     VStack(spacing: 0) {
                         // 1. Ton image dans son cercle blanc
                         Image(systemName: "mappin.circle.fill")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 30, height: 30)
-                            .clipShape(Circle())
+                            .circleImage(frameSize: 30)
                             .foregroundStyle(.mainOrange)
                             .padding(2)
                             .background(Circle().fill(.white))
