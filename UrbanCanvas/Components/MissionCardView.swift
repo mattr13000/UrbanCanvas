@@ -1,10 +1,3 @@
-//
-//  MissionCardView.swift
-//  UrbanCanvas
-//
-//  Created by Apprenant 77 on 06/07/2026.
-//
-
 import SwiftUI
 
 struct MissionCardView: View {
