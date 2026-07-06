@@ -1,11 +1,3 @@
-
-//
-//  artists.swift
-//  UrbanCanvas
-//
-//  Created by Apprenant 77 on 02/07/2026.
-//
-
 let artists: [Artist] = [
     Artist(name: "Didier", age: 34, origin: "Marseille", favArtStyle: "Pastis", profilePictureName: "didier", artistUrl: "https://www.om.fr/fr"),
     Artist(name: "Kiam", age: 34, origin: "Porto", favArtStyle: "Mural", profilePictureName: "placeholder", artistUrl: "https://streetartcities.com/artists/kiam"),

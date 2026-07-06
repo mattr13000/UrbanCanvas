@@ -1,24 +1,15 @@
-//
-//  ArtworkDetailView.swift
-//  UrbanCanvas
-//
-//  Created by Apprenant 77 on 02/07/2026.
-//
-
 import SwiftUI
 import MapKit
 
 struct ArtworkDetailView: View {
     var artwork :Artwork
     var body: some View {
-        
         VStack {
             Image(artwork.imageName)
                 .resizable()
                 .scaledToFill()
                 .frame(height: 300)
                 .padding(.bottom, 30)
-            
             Spacer()
             ScrollView {
                 VStack (alignment: .leading) {
@@ -41,25 +32,11 @@ struct ArtworkDetailView: View {
                     MapCamera(centerCoordinate: artwork.coordinates, distance: 500)
                 )){
                     Annotation("", coordinate: artwork.coordinates) {
-                        VStack(spacing: 0) {
-                            // 1. Ton image dans son cercle blanc
-                            Image(artwork.imageName)
-                                .circleImage(frameSize: 50)
-                                .foregroundStyle(.blue)
-                                .padding(2)
-                                .background(Circle().fill(.white))
-                            
-                            
-                            Image(systemName: "arrowtriangle.down.fill")
-                                .resizable()
-                                .frame(width: 12, height: 8)
-                                .foregroundStyle(.white)
-                                .offset(y: -3)
-                        }
+                        AnnotationView(image: Image(artwork.imageName))
                     }
                 }
                 .mapStyle(.standard(pointsOfInterest: .excludingAll))
-                .frame(maxWidth: 4000, minHeight: 200)
+                .frame(minHeight: 200)
                 .cornerRadius(15)
                 .padding(25)
                 .environment(\.colorScheme, .dark)
@@ -72,5 +49,5 @@ struct ArtworkDetailView: View {
 }
 
 #Preview {
-    ArtworkDetailView(artwork: artworks[1])
+    ArtworkDetailView(artwork: artworks[6])
 }
