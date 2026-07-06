@@ -9,7 +9,7 @@ Digitalize street art discovery.
 # PROJECT OVERVIEW
 
 **Full description:**
-Urban Canvas is an iOS app to inventory & geolocalize street art. The app features a list of nearby street art, with community-provided photos and description, a map to geolocalize art, and a list of street artists with a link to their website. There is also a "Mission" functionality, gamifying the experience. The user randomly gets assigned 5 street arts nearby to find & check. Mission completion currently gives no reward but it's on the pipeline for future updates.
+Urban Canvas is an iOS app to identify & geolocalize street art. The app features a list of nearby street art, with community-provided photos and description, a map to geolocalize art, and a list of street artists with a link to their website. There is also a "Mission" functionality, gamifying the experience. The user randomly gets assigned 5 street arts nearby to find & check. Mission completion currently gives no reward but it's on the pipeline for future updates.
 
 **Date of creation:** : 02/07/2026
 
