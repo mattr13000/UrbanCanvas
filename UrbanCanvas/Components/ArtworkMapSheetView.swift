@@ -10,6 +10,7 @@ import SwiftUI
 struct ArtworkMapSheetView: View {
     var artwork :Artwork
     @Environment(\.dismiss) private var dismiss
+    @State private var isDetailDisplayed = false
     var body: some View {
         NavigationView {
             VStack {
@@ -27,13 +28,32 @@ struct ArtworkMapSheetView: View {
                     Spacer()
                     Text(artwork.name)
                     Spacer()
-                    NavigationLink(destination:  ArtworkDetailView(artwork: artwork), label: {
+                    Button {
+                        isDetailDisplayed = true
+                    }
+                    label: {
                         Image(systemName: "arrow.right.circle.fill")
                             .resizable()
                             .scaledToFit()
                             .frame(maxWidth: 50)
                             .foregroundStyle(.mainOrange)
-                    })
+                    }
+                    .fullScreenCover(isPresented: $isDetailDisplayed) {
+                        ArtworkDetailView(artwork: artwork)
+                            .overlay(alignment: .topLeading) {
+                                Button {
+                                    isDetailDisplayed = false
+                                }
+                                label: {
+                                    Image(systemName: "chevron.backward.circle.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(maxWidth: 40)
+                                        .foregroundStyle(.white)
+                                }
+                                .padding()
+                            }
+                    }
                 }
                 Image(artwork.imageName)
                     .resizable()
