@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ArtworkMapSheetView: View {
-    var artwork :Artwork
+    let artwork :Artwork
     @Environment(\.dismiss) private var dismiss
     @State private var isDetailDisplayed = false
     var body: some View {

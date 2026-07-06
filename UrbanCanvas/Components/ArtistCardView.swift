@@ -14,7 +14,7 @@ struct ArtistCardView: View {
             Image(artist.profilePictureName)
                 .circleImage(frameSize: 80)
             Text(artist.name)
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.bold)
                 .foregroundStyle(.mainOrange)
                 .padding(5)
@@ -44,5 +44,5 @@ struct ArtistCardView: View {
 }
 
 #Preview {
-    ArtistCardView(artist: artists[1])
+    ArtistCardView(artist: artists[2])
 }

@@ -39,13 +39,6 @@ au moins 2 types d'art
 une struct pour mission ?
 */
 
-
-
-
-
-
-
-
 //func newMission() => [Artwork] {
 //    let missionArray :[Artwork] = []
 //    for i in 0..<artworks.length {
