@@ -8,7 +8,7 @@ struct ArtworkMapView: View {
         Map(){
             ForEach (artworkList.filteredArray) { artwork in
                 Annotation(artwork.name, coordinate: artwork.coordinates) {
-                    AnnotationView(image: Image(systemName: "mappin.circle.fill"))
+                    AnnotationView(image: Image(systemName: "mappin.circle.fill"), imageFrameSize: 30)
                     .onTapGesture {
                         selectedArtwork = artwork
                     }
