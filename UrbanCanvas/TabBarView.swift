@@ -11,17 +11,7 @@ struct TabBarView: View {
     @Environment(ArtworksList.self) private var artworkList
     var body: some View {
         TabView {
-            //            Tab("Oeuvres", systemImage: "photo.artframe.circle") {
-            //                PickerView()
-            //            }
-            //            Tab("Auteurs", systemImage: "person.circle")
-            //            {
-            //                ArtistsListView()
-            //            }
-            //            Tab("Missions", systemImage: "magnifyingglass.circle") {
-            //                MissionView()
-            //            }
-            ArtworkListView()
+            ArtworksView()
                 .tabItem {
                     Image(systemName: "photo.artframe.circle")
                         .environment(\.symbolVariants, .none)

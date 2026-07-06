@@ -27,9 +27,8 @@ struct ArtistCardView: View {
                     .padding()
                     .frame(maxWidth: 180, maxHeight: 40)
                     .background(
-                        Rectangle()
+                        Capsule()
                             .foregroundStyle(.secondOrange)
-                            .cornerRadius(30)
                     )
             })
             .padding()

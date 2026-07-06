@@ -2,36 +2,29 @@
 //  FilterMenuButton.swift
 //  UrbanCanvas
 //
-//  Created by Apprenant 77 on 03/07/2026.
+//  Created by Apprenant 77 on 06/07/2026.
 //
 
 import SwiftUI
 
 struct FilterMenuButton: View {
-    @Environment(ArtworksList.self) private var artworkList
-    @Environment(\.dismiss) private var dismiss
-    let artStyleText :String
+    @Binding var isFilterMenuActive :Bool
     var body: some View {
         Button {
-            artworkList.currentFilter = artStyleText
-            dismiss()
+            isFilterMenuActive.toggle()
         } label: {
-                Text(artStyleText)
-                .foregroundStyle(artStyleText == artworkList.currentFilter ? .mainOrange : .mainText)
-                .padding()
-                .frame(maxWidth:.infinity)
-                .background(
-                    Rectangle()
-                        .foregroundStyle(.backgroundGray)
-                        .cornerRadius(30)
-                    
-                )
+            ZStack {
+                Circle()
+                    .frame(maxWidth: 50)
+                    .foregroundStyle(.white)
+                Image(systemName: "line.3.horizontal.decrease.circle")
+                    .circleImage(frameSize: 35)
+            }
         }
         .buttonStyle(.plain)
     }
 }
 
 #Preview {
-    FilterMenuButton(artStyleText: "Salut")
-        .environment(ArtworksList())
+    //FilterMenuButton()
 }

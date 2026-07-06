@@ -15,7 +15,7 @@ struct FilterMenuView: View {
                 .fontWeight(.bold)
             Text("Choisissez un type d'art")
             ForEach (artStyles, id: \.self) { artStyle in
-                FilterMenuButton(artStyleText: artStyle)
+                FilterSelectionButton(artStyleText: artStyle)
                     
             }
         }
