@@ -20,9 +20,7 @@ struct ArtworkMapSheetView: View {
                     }
                     label: {
                         Image(systemName: "xmark.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: 50)
+                            .circleImage(frameSize: 50)
                             .foregroundStyle(.backgroundGray)
                     }
                     Spacer()
@@ -33,9 +31,7 @@ struct ArtworkMapSheetView: View {
                     }
                     label: {
                         Image(systemName: "arrow.right.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: 50)
+                            .circleImage(frameSize: 50)
                             .foregroundStyle(.mainOrange)
                     }
                     .fullScreenCover(isPresented: $isDetailDisplayed) {
@@ -46,9 +42,7 @@ struct ArtworkMapSheetView: View {
                                 }
                                 label: {
                                     Image(systemName: "chevron.backward.circle.fill")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(maxWidth: 40)
+                                        .circleImage(frameSize: 40)
                                         .foregroundStyle(.white)
                                 }
                                 .padding()

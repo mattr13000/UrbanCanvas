@@ -41,6 +41,7 @@ struct ArtworkMapView: View {
                 .background(.clear)
                 .presentationDetents([.medium])
         }
+        .ignoresSafeArea()
     }
 }
 
