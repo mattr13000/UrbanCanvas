@@ -27,9 +27,10 @@ struct PickerView: View {
                 } label: {
                     ZStack {
                         Circle()
-                            .frame(maxWidth: 40)
+                            .frame(maxWidth: 50)
                             .foregroundStyle(.white)
                         Image(systemName: "line.3.horizontal.decrease.circle")
+                            .circleImage(frameSize: 35)
                     }
                 }
                 .buttonStyle(.plain)
@@ -42,6 +43,7 @@ struct PickerView: View {
                 ArtworkMapView()
             }
         }
+        .background(.backgroundGray)
     }
 }
 

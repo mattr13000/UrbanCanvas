@@ -12,10 +12,7 @@ struct ArtistCardView: View {
     var body: some View {
         VStack{
             Image(artist.profilePictureName)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 60, height: 60)
-                .cornerRadius(80)
+                .circleImage(frameSize: 80)
             Text(artist.name)
                 .font(.title)
                 .fontWeight(.bold)

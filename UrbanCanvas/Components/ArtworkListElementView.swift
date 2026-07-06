@@ -13,10 +13,7 @@ struct ArtworkListElementView: View {
         NavigationLink(destination: ArtworkDetailView(artwork: artwork)){
             HStack {
                 Image(artwork.imageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 60, height: 60)
-                    .cornerRadius(80)
+                    .circleImage(frameSize: 60)
                 VStack(alignment: .leading) {
                     Text(artwork.name)
                         .foregroundStyle(.black)

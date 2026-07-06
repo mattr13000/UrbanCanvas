@@ -44,10 +44,7 @@ struct ArtworkDetailView: View {
                         VStack(spacing: 0) {
                             // 1. Ton image dans son cercle blanc
                             Image(artwork.imageName)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 50, height: 50)
-                                .clipShape(Circle())
+                                .circleImage(frameSize: 50)
                                 .foregroundStyle(.blue)
                                 .padding(2)
                                 .background(Circle().fill(.white))
