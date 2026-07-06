@@ -21,7 +21,7 @@ struct ArtistCardView: View {
             Text("\(Text("Age :").bold()) \(artist.age)")
             Text("\(Text("Origine :").bold()) \(artist.origin)")
             Text("\(Text("Style :").bold()) \(artist.favArtStyle)")
-            Link (destination: URL(string: "https://apple.com")!, label: {
+            Link (destination: URL(string: artist.artistUrl)!, label: {
                 Text("Site Web")
                     .foregroundStyle(.white)
                     .padding()
