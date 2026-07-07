@@ -9,7 +9,7 @@ struct ArtworkListView: View {
         VStack {
             NavigationStack {
                 List(artworkList.filteredArray) { artwork in
-                    ArtworkListElementView(artwork: artwork)
+                    ListElementView(artwork: artwork)
                 }
                 .navigationTitle("Liste des Street arts")
 
