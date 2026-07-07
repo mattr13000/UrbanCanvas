@@ -1,9 +1,9 @@
 import SwiftUI
 import MapKit
 
-struct ArtworkMapView: View {
+struct MapView: View {
     @State private var selectedArtwork :Artwork? = nil
-    @Environment(ArtworksList.self) private var artworkList
+    @Environment(ArtworkManager.self) private var artworkList
     var body: some View {
         Map(){
             ForEach (artworkList.filteredArray) { artwork in
@@ -16,7 +16,7 @@ struct ArtworkMapView: View {
             }
         }
         .sheet(item: $selectedArtwork) {artwork in
-            ArtworkMapSheetView(artwork: artwork)
+            MapSheetView(artwork: artwork)
                 .background(.clear)
                 .presentationDetents([.medium])
         }
@@ -25,6 +25,6 @@ struct ArtworkMapView: View {
 }
 
 #Preview {
-    ArtworkMapView()
-        .environment(ArtworksList())
+    MapView()
+        .environment(ArtworkManager())
 }

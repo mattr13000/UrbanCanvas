@@ -1,36 +1,54 @@
 import SwiftUI
 
 struct MissionView: View {
-    @State var show = false
-    @Environment(ArtworksList.self) private var artworkList
-    var missionArray = [1,2,3,4,5]
-
+    @Environment(MissionManager.self) private var missionManager
     var body: some View {
-        NavigationStack {
-            ForEach (artworkList.missionArray) { mission in
-                ArtworkListElementView(artwork: mission)
-        }
-        }
-        .navigationTitle("Mission")
-        Button {
-            withAnimation(.spring().delay(0.5)) {
-                show.toggle()
+        ZStack {
+            if missionManager.currentMission.count == 0 {
+                Button {
+                    if missionManager.currentMission.count == 0 {
+                        missionManager.currentMission = missionManager.createMission()
+                    }
+                }
+                label: {
+                    MissionButtonLabel(buttonText: "Nouvelle Mission")
+                }
+                .padding()
             }
-        } label: {
-            Text("Nouvelle mission")
-                .foregroundStyle(.accent)
-            .padding()
-            .frame(maxWidth:.infinity)
-            .background(
-                Capsule()
-                    .foregroundStyle(.backgroundGray)
-            )
-    }
-        .padding()
+            
+            else if missionManager.completedMissions == missionManager.currentMission.count {
+                Button {
+                    if missionManager.currentMission.count == 0 {
+                        missionManager.currentMission = missionManager.createMission()
+                    }
+                }
+                label: {
+                    MissionButtonLabel(buttonText: "Mission Terminée !\nOn continue ?")
+                }
+                .padding()
+            }
+            
+            else {
+                VStack {
+                    Text("Missions Complétées : \(missionManager.completedMissions)/\(missionManager.currentMission.count)")
+                        .titleText(color: .mainText)
+                        .padding()
+                        .progressBarBackground(location: CGFloat(missionManager.completedMissions))
+                    NavigationStack {
+                        ScrollView {
+                            ForEach(missionManager.currentMission.enumerated(), id: \.element.id) { index, mission in
+                                MissionCardView(mission: mission, index: index)
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
 #Preview {
     MissionView()
-        .environment(ArtworksList())
+        .environment(MissionManager())
 }
