@@ -11,7 +11,7 @@ struct ArtworksView: View {
                 ArtworkListView()
                 
             } else {
-                ArtworkMapView()
+                MapView()
             }
             HStack {
                 Picker("Options", selection: $selectedView) {

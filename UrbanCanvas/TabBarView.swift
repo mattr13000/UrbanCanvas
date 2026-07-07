@@ -32,4 +32,5 @@ struct TabBarView: View {
 #Preview {
     TabBarView()
         .environment(ArtworkManager())
+        .environment(MissionManager())
 }

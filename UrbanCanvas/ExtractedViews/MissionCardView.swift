@@ -1,9 +1,10 @@
 import SwiftUI
 
 struct MissionCardView: View {
-    var mission :Mission
+    let mission :Mission
+    let index :Int
     @Environment(MissionManager.self) private var missionManager
-    @State var isMissionComplete :Bool = false
+    @State private var showUnvisitedAlert = false
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
@@ -14,11 +15,16 @@ struct MissionCardView: View {
                         .foregroundStyle(.mainOrange)
                     Spacer()
                     NavigationLink {
-                        ArtworkDetailView(artwork: artworks[1])
-                    } label: {
+                        ArtworkDetailView(artwork: mission.missionArtwork)
+                    }
+                    label: {
                         Image(systemName: "arrow.right.circle.fill")
                             .circleImage(frameSize: 50)
-                        .foregroundStyle(.mainOrange)                    }
+                            .foregroundStyle(.mainOrange)
+                    }
+                    .simultaneousGesture(TapGesture().onEnded {
+                        missionManager.currentMission[index].isVisited = true
+                    })
                 }
                 Image(mission.missionArtwork.imageName)
                     .resizable()
@@ -32,15 +38,19 @@ struct MissionCardView: View {
                         .foregroundStyle(.mainOrange)
                     Spacer()
                     Button {
-                        isMissionComplete.toggle()
-                        if isMissionComplete {
-                            missionManager.deleteMission(mission: mission)
+                        if missionManager.currentMission[index].isVisited {
+                            missionManager.currentMission[index].isComplete.toggle()
+                        } else {
+                            showUnvisitedAlert = true
                         }
                     } label: {
                         Image(systemName: "checkmark.circle.fill")
                             .circleImage(frameSize: 30)
-                            .foregroundStyle(isMissionComplete ? .secondOrange : .white)
+                            .foregroundStyle(missionManager.currentMission[index].isComplete ? .secondOrange : .white)
                             .shadow(radius: 5)
+                    }
+                    .alert("Tu n'as pas visité la page de l'oeuvre, petit filou !", isPresented: $showUnvisitedAlert) {
+                        Button("OK", role: .cancel) { }
                     }
                 }
                 Text("\(Text("Type :").bold()) \(mission.missionArtwork.artType)")
@@ -60,6 +70,6 @@ struct MissionCardView: View {
 }
 
 #Preview {
-//    MissionCardView(artwork: artworks[2])
-//        .environment(ArtworkManager())
+    //    MissionCardView(artwork: artworks[2])
+    //        .environment(ArtworkManager())
 }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ArtworkListElementView: View {
+struct ListElementView: View {
     var artwork :Artwork
     var body: some View {
         NavigationLink(destination: ArtworkDetailView(artwork: artwork)){
@@ -24,5 +24,5 @@ struct ArtworkListElementView: View {
 }
 
 #Preview {
-    ArtworkListElementView(artwork: artworks[1])
+    ListElementView(artwork: artworks[1])
 }
