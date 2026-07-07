@@ -2,10 +2,11 @@ import SwiftUI
 
 struct AnnotationView: View {
     let image :Image
+    let imageFrameSize :CGFloat
     var body: some View {
         VStack(spacing: 0) {
             image
-                .circleImage(frameSize: 30)
+                .circleImage(frameSize: imageFrameSize)
                 .foregroundStyle(.mainOrange)
                 .padding(2)
                 .background(Circle().fill(.white))

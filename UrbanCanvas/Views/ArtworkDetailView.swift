@@ -32,7 +32,7 @@ struct ArtworkDetailView: View {
                     MapCamera(centerCoordinate: artwork.coordinates, distance: 500)
                 )){
                     Annotation("", coordinate: artwork.coordinates) {
-                        AnnotationView(image: Image(artwork.imageName))
+                        AnnotationView(image: Image(artwork.imageName), imageFrameSize: 50)
                     }
                 }
                 .mapStyle(.standard(pointsOfInterest: .excludingAll))
