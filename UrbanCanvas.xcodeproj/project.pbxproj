@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		87138A772FF683B400D11A68 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 87138A762FF683B400D11A68 /* .gitignore */; };
+		87D61BC12FFCDE220029FEBB /* mockupData.json in Resources */ = {isa = PBXBuildFile; fileRef = 87D61BA32FFCDE220029FEBB /* mockupData.json */; };
 		87D61BE02FFD2DAB0029FEBB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 87D61BDF2FFD2DAB0029FEBB /* README.md */; };
+		87D61BE22FFD2E420029FEBB /* Specs_UrbanCanvas.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 87D61BE12FFD2E420029FEBB /* Specs_UrbanCanvas.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		87138A662FF6819B00D11A68 /* UrbanCanvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrbanCanvas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87138A762FF683B400D11A68 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		87D61BA32FFCDE220029FEBB /* mockupData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockupData.json; sourceTree = "<group>"; };
 		87D61BDF2FFD2DAB0029FEBB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		87D61BE12FFD2E420029FEBB /* Specs_UrbanCanvas.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Specs_UrbanCanvas.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -39,7 +43,9 @@
 		87138A5D2FF6819B00D11A68 = {
 			isa = PBXGroup;
 			children = (
+				87D61BE12FFD2E420029FEBB /* Specs_UrbanCanvas.pdf */,
 				87D61BDF2FFD2DAB0029FEBB /* README.md */,
+				87D61BA32FFCDE220029FEBB /* mockupData.json */,
 				87138A762FF683B400D11A68 /* .gitignore */,
 				87138A682FF6819B00D11A68 /* UrbanCanvas */,
 				87138A672FF6819B00D11A68 /* Products */,
@@ -118,7 +124,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87D61BE22FFD2E420029FEBB /* Specs_UrbanCanvas.pdf in Resources */,
 				87D61BE02FFD2DAB0029FEBB /* README.md in Resources */,
+				87D61BC12FFCDE220029FEBB /* mockupData.json in Resources */,
 				87138A772FF683B400D11A68 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

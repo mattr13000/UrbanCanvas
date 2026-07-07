@@ -4,30 +4,23 @@ struct MissionView: View {
     @Environment(MissionManager.self) private var missionManager
     var body: some View {
         ZStack {
-            if missionManager.currentMission.count == 0 {
+           // Storing mission start/restart condition in a constant to make code more readable
+            let startMissionCondition :Bool = missionManager.currentMission.count == 0 || missionManager.completedMissions == missionManager.currentMission.count
+            
+            // We check if a mission is already ongoing, or if the ongoing mission is finished
+            if startMissionCondition {
                 Button {
-                    if missionManager.currentMission.count == 0 {
+                    if startMissionCondition  {
                         missionManager.currentMission = missionManager.createMission()
                     }
                 }
                 label: {
-                    MissionButtonLabel(buttonText: "Nouvelle Mission")
+                    // Label changes depending if we starting a new mission or restarting one after completion
+                    MissionButtonLabel(buttonText: missionManager.currentMission.count == 0 ? "Nouvelle Mission" : "Mission Terminée !\nOn continue ?")
                 }
                 .padding()
             }
-            
-            else if missionManager.completedMissions == missionManager.currentMission.count {
-                Button {
-                    if missionManager.currentMission.count == 0 {
-                        missionManager.currentMission = missionManager.createMission()
-                    }
-                }
-                label: {
-                    MissionButtonLabel(buttonText: "Mission Terminée !\nOn continue ?")
-                }
-                .padding()
-            }
-            
+            // If a mission is ongoing, show the missions list
             else {
                 VStack {
                     Text("Missions Complétées : \(missionManager.completedMissions)/\(missionManager.currentMission.count)")

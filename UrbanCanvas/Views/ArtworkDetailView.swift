@@ -14,9 +14,7 @@ struct ArtworkDetailView: View {
             ScrollView {
                 VStack (alignment: .leading) {
                     Text(artwork.name)
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.orange)
+                        .titleText(color: .secondOrange)
                     Spacer()
                     Text(artwork.description)
                     Spacer()

@@ -5,5 +5,5 @@ struct Mission :Identifiable {
     var missionNumber :Int
     var missionArtwork :Artwork
     var isVisited :Bool
-    var isComplete :Bool
+    var isCompleted :Bool
 }

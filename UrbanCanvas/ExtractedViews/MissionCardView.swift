@@ -10,9 +10,7 @@ struct MissionCardView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text("Mission \(mission.missionNumber) :")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.mainOrange)
+                        .titleText(color: .mainOrange)
                     Spacer()
                     NavigationLink {
                         ArtworkDetailView(artwork: mission.missionArtwork)
@@ -33,20 +31,18 @@ struct MissionCardView: View {
                     .cornerRadius(10)
                 HStack {
                     Text(mission.missionArtwork.name)
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundStyle(.mainOrange)
+                        .title2Text(color: .mainOrange)
                     Spacer()
                     Button {
                         if missionManager.currentMission[index].isVisited {
-                            missionManager.currentMission[index].isComplete.toggle()
+                            missionManager.currentMission[index].isCompleted.toggle()
                         } else {
                             showUnvisitedAlert = true
                         }
                     } label: {
                         Image(systemName: "checkmark.circle.fill")
                             .circleImage(frameSize: 30)
-                            .foregroundStyle(missionManager.currentMission[index].isComplete ? .secondOrange : .white)
+                            .foregroundStyle(missionManager.currentMission[index].isCompleted ? .secondOrange : .white)
                             .shadow(radius: 5)
                     }
                     .alert("Tu n'as pas visité la page de l'oeuvre, petit filou !", isPresented: $showUnvisitedAlert) {
