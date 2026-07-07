@@ -1,16 +1,13 @@
 import SwiftUI
 
 struct MissionView: View {
-    @State var show = false
-    @Environment(ArtworksList.self) private var artworkList
-    
-    
+    @Environment(MissionManager.self) private var missionManager
     var body: some View {
         ZStack {
-            if artworkList.currentMission.count == 0 {
+            if missionManager.currentMission.count == 0 {
                 Button {
-                    if artworkList.currentMission.count == 0 {
-                        artworkList.currentMission = artworkList.createMission()
+                    if missionManager.currentMission.count == 0 {
+                        missionManager.currentMission = missionManager.createMission()
                     }
                 }
                 label: {
@@ -32,8 +29,8 @@ struct MissionView: View {
                 NavigationStack {
                     ScrollView {
                         VStack {
-                            ForEach(artworkList.currentMission.enumerated(), id: \.element.id) { index, mission in
-                                MissionCardView(artwork: mission, missionIndex: (index))
+                            ForEach(missionManager.currentMission.enumerated(), id: \.element.id) { index, mission in
+                                MissionCardView(mission: mission)
                             }
                         }
                     }
@@ -45,5 +42,5 @@ struct MissionView: View {
 
 #Preview {
     MissionView()
-        .environment(ArtworksList())
+        .environment(MissionManager())
 }

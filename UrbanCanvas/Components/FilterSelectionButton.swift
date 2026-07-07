@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct FilterSelectionButton: View {
-    @Environment(ArtworksList.self) private var artworkList
+    @Environment(ArtworkManager.self) private var artworkList
     @Environment(\.dismiss) private var dismiss
     let artStyleText :String
     var body: some View {
@@ -24,5 +24,5 @@ struct FilterSelectionButton: View {
 
 #Preview {
     FilterSelectionButton(artStyleText: "Salut")
-        .environment(ArtworksList())
+        .environment(ArtworkManager())
 }
