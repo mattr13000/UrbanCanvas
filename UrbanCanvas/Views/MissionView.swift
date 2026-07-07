@@ -11,7 +11,7 @@ struct MissionView: View {
                     }
                 }
                 label: {
-MissionButtonLabel(buttonText: "Nouvelle Mission")
+                    MissionButtonLabel(buttonText: "Nouvelle Mission")
                 }
                 .padding()
             }

@@ -4,6 +4,7 @@ struct MissionCardView: View {
     let mission :Mission
     let index :Int
     @Environment(MissionManager.self) private var missionManager
+    @State private var showUnvisitedAlert = false
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
@@ -39,12 +40,17 @@ struct MissionCardView: View {
                     Button {
                         if missionManager.currentMission[index].isVisited {
                             missionManager.currentMission[index].isComplete.toggle()
+                        } else {
+                            showUnvisitedAlert = true
                         }
                     } label: {
                         Image(systemName: "checkmark.circle.fill")
                             .circleImage(frameSize: 30)
                             .foregroundStyle(missionManager.currentMission[index].isComplete ? .secondOrange : .white)
                             .shadow(radius: 5)
+                    }
+                    .alert("Tu n'as pas visité la page de l'oeuvre, petit filou !", isPresented: $showUnvisitedAlert) {
+                        Button("OK", role: .cancel) { }
                     }
                 }
                 Text("\(Text("Type :").bold()) \(mission.missionArtwork.artType)")
