@@ -9,5 +9,13 @@ extension Text {
             .bold()
             .foregroundStyle(color)
     }
+    
+    func title2Text(color :Color) -> some View {
+        self
+            .font(.title)
+            .bold()
+            .foregroundStyle(color)
+    }
+    
 }
 

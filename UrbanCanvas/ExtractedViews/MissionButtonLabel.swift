@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MissionButtonLabel: View {
+    let frameSize :CGFloat = 300
     let buttonText :String
     var body: some View {
         Text(buttonText)
@@ -15,9 +16,18 @@ struct MissionButtonLabel: View {
             .padding()
             .frame(maxWidth:.infinity)
             .background(
-                Circle()
-                    .scaledToFill()
-                    .foregroundStyle(.mainOrange)
+                ZStack {
+                    Rectangle()
+                        .cornerRadius(50)
+                        .frame(width: frameSize, height: frameSize)
+                        .foregroundStyle(.mainOrange)
+                        .padding(50)
+                    Rectangle()
+                        .cornerRadius(50)
+                        .frame(width: frameSize - 20, height: frameSize - 20)
+                        .foregroundStyle(.secondOrange)
+                        .padding(50)
+                }
             )
     }
 }
