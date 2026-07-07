@@ -1,15 +1,14 @@
 import SwiftUI
 
 struct MissionCardView: View {
-    let artwork :Artwork
-    let missionIndex :Int
-    @State private var isMissionComplete :Bool = false
-    @Environment(ArtworksList.self) private var artworkList
+    var mission :Mission
+    @Environment(MissionManager.self) private var missionManager
+    @State var isMissionComplete :Bool = false
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
                 HStack {
-                    Text("Mission \(missionIndex) :")
+                    Text("Mission \(mission.missionNumber) :")
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundStyle(.mainOrange)
@@ -21,13 +20,13 @@ struct MissionCardView: View {
                             .circleImage(frameSize: 50)
                         .foregroundStyle(.mainOrange)                    }
                 }
-                Image(artwork.imageName)
+                Image(mission.missionArtwork.imageName)
                     .resizable()
                     .scaledToFit()
                     .frame(minWidth: 200, maxHeight: 200)
                     .cornerRadius(10)
                 HStack {
-                    Text(artwork.name)
+                    Text(mission.missionArtwork.name)
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundStyle(.mainOrange)
@@ -35,7 +34,7 @@ struct MissionCardView: View {
                     Button {
                         isMissionComplete.toggle()
                         if isMissionComplete {
-                            artworkList.currentMission.remove(at: missionIndex)
+                            missionManager.deleteMission(mission: mission)
                         }
                     } label: {
                         Image(systemName: "checkmark.circle.fill")
@@ -44,9 +43,9 @@ struct MissionCardView: View {
                             .shadow(radius: 5)
                     }
                 }
-                Text("\(Text("Type :").bold()) \(artwork.artType)")
-                Text("\(Text("Auteur :").bold()) \(artwork.author.name)")
-                Text("\(Text("Localisation :").bold()) \(artwork.localisation)")
+                Text("\(Text("Type :").bold()) \(mission.missionArtwork.artType)")
+                Text("\(Text("Auteur :").bold()) \(mission.missionArtwork.author.name)")
+                Text("\(Text("Localisation :").bold()) \(mission.missionArtwork.localisation)")
             }
             .padding()
             .background(
@@ -61,6 +60,6 @@ struct MissionCardView: View {
 }
 
 #Preview {
-    MissionCardView(artwork: artworks[2], missionIndex: 2)
-        .environment(ArtworksList())
+//    MissionCardView(artwork: artworks[2])
+//        .environment(ArtworkManager())
 }

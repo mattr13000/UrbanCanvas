@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @Environment(ArtworksList.self) private var artworkList
+    @Environment(ArtworkManager.self) private var artworkList
     var body: some View {
         TabView {
             ArtworksView()
@@ -31,5 +31,5 @@ struct TabBarView: View {
 
 #Preview {
     TabBarView()
-        .environment(ArtworksList())
+        .environment(ArtworkManager())
 }

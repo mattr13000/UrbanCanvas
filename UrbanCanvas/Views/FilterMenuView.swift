@@ -18,5 +18,5 @@ struct FilterMenuView: View {
 
 #Preview {
     FilterMenuView()
-        .environment(ArtworksList())
+        .environment(ArtworkManager())
 }

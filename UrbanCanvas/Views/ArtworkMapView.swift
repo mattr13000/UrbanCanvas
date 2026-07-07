@@ -3,7 +3,7 @@ import MapKit
 
 struct ArtworkMapView: View {
     @State private var selectedArtwork :Artwork? = nil
-    @Environment(ArtworksList.self) private var artworkList
+    @Environment(ArtworkManager.self) private var artworkList
     var body: some View {
         Map(){
             ForEach (artworkList.filteredArray) { artwork in
@@ -26,5 +26,5 @@ struct ArtworkMapView: View {
 
 #Preview {
     ArtworkMapView()
-        .environment(ArtworksList())
+        .environment(ArtworkManager())
 }

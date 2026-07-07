@@ -3,7 +3,7 @@ import SwiftUI
 struct ArtworkListView: View {
     
 
-    @Environment(ArtworksList.self) private var artworkList
+    @Environment(ArtworkManager.self) private var artworkList
     
     var body: some View {
         VStack {
@@ -22,5 +22,5 @@ struct ArtworkListView: View {
 
 #Preview {
     ArtworkListView()
-        .environment(ArtworksList())
+        .environment(ArtworkManager())
 }

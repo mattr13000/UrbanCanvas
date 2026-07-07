@@ -45,5 +45,5 @@ struct ArtworksView: View {
 
 #Preview {
     ArtworksView()
-        .environment(ArtworksList())
+        .environment(ArtworkManager())
 }
